@@ -1,0 +1,133 @@
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+body {
+   background:linear-gradient(to left,rgba(114, 4, 4, 0.874),Teal);
+   font-family: sans-serif;
+   height: 100vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.title {
+   color: #fff;
+   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+   font-size: 2rem;
+}
+.container {
+   padding: 2% 5% 5% 5%;
+   grid-template-rows: 35% 65%;
+   align-items: center;
+   justify-content: center;
+   border: 0.6rem solid #000000;
+   border-style: ridge;
+   border-radius: 1rem;
+}
+h1 {
+   margin-top: 3rem;
+   font-size: 3.5rem;
+   text-align: center;
+   padding-bottom: 20px;
+   color: white;
+   background-clip: text;
+
+}
+.box {
+   height: 100%;
+   width: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+.clock {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   margin: 0 .5rem;
+   width: 10rem;
+   height: 8rem;
+   align-items: center;
+   color: #fff;
+   background-color: #1a1a1a;
+   position: relative;
+   border-radius: 1rem;
+   font-size: 3.5rem;
+   overflow: hidden;
+}
+.clock p {
+   font-size: 1rem;
+}
+.clock::before {
+   content: "";
+   position: absolute;
+   top: -50%;
+   left: -50%;
+   width: 90%;
+   height: 8rem;
+   background: linear-gradient(0deg, transparent,
+   transparent, #D8B5FF  , #D8B5FF  , #D8B5FF  );
+   z-index: 1;
+   transform-origin: bottom right;
+   animation: animate 5s linear infinite;
+}
+.clock::after {
+   content: "";
+   position: absolute;
+   top: -50%;
+   left: -50%;
+   width: 90%;
+   height: 8rem;
+   background: linear-gradient(0deg, transparent,
+   transparent, #1EAE98, #1EAE98, #1EAE98);
+   z-index: 0;
+   transform-origin: bottom right;
+   animation: animate 5s linear infinite;
+   animation-delay: -3s;
+}
+@keyframes animate {
+   0% {
+      transform: rotate(0deg);
+   }
+   100% {
+      transform: rotate(360deg);
+   }
+}
+.front-clock {
+   text-align: center;
+   padding-top: .6rem;
+   background-color: #272323c8;
+   width: 95%;
+   height: 95%;
+   border-radius: 1rem;
+   z-index: 1;
+}
+@media (max-width: 890px) {
+   .container {
+      width: 60%;
+   }
+   .clock {
+      font-size: 3rem;
+   }
+}
+@media (max-width: 590px) {
+   .container {
+      grid-template-rows: 20% 80%;
+   }
+   h1 {
+      margin-top: 0;
+   }
+   .box {
+      display: grid;
+      grid-template-rows: 33% 33% 33%;
+   }
+   .clock {
+      width: 30vw;
+      margin: 0;
+      font-size: 4rem;
+      margin-top: .8rem;
+   }
+}
